@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello World Gak Fungsi")
+	fmt.Println("FeatureA")
 	fmt.Println("Hello World")
 	fmt.Println("Hello world2")
 	fmt.Println("Hello World3")
