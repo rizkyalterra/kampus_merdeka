@@ -10,6 +10,10 @@ func main() {
 	fmt.Println("Hello world2")
 	fmt.Println("Hello World3")
 	fmt.Println("Hello WorldXX")
+	fmt.Println("Hello World4")
+	fmt.Println("Hello World5")
+	fmt.Println("Hello World6")
+	fmt.Println("Hello World7")
 	fmt.Println(funWithAnagrams([]string{"code", "aaagmnrs", "anagrams", "doce"}))
 	fmt.Println(funWithAnagrams([]string{"poke", "pkoe", "okpe", "ekop"}))
 }
