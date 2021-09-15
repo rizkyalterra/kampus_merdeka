@@ -6,10 +6,10 @@ import (
 )
 
 func main() {
+	fmt.Println("Hello World")
 	fmt.Println(funWithAnagrams([]string{"code", "aaagmnrs", "anagrams", "doce"}))
 	fmt.Println(funWithAnagrams([]string{"poke", "pkoe", "okpe", "ekop"}))
 }
-
 
 func funWithAnagrams(text []string) []string {
 	// Write your code here
@@ -58,4 +58,3 @@ func checkIsAnagram(text []string, key string) bool {
 	}
 	return false
 }
-
