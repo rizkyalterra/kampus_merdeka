@@ -6,6 +6,7 @@ import (
 )
 
 func FeatureA() {
+	fmt.Println("Hello World")
 	fmt.Println("FeatureA")
 }
 

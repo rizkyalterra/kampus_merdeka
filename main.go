@@ -7,6 +7,7 @@ import (
 
 func main() {
 	fmt.Println("Hello World")
+	fmt.Println("Hello world2")
 	fmt.Println(funWithAnagrams([]string{"code", "aaagmnrs", "anagrams", "doce"}))
 	fmt.Println(funWithAnagrams([]string{"poke", "pkoe", "okpe", "ekop"}))
 }
