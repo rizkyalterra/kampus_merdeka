@@ -1,6 +1,7 @@
 package configs
 
 import (
+	"kampus_merdeka/models/twiters"
 	"kampus_merdeka/models/users"
 
 	"gorm.io/driver/mysql"
@@ -20,5 +21,5 @@ func InitDB() {
 }
 
 func Migration() {
-	DB.AutoMigrate(&users.User{})
+	DB.AutoMigrate(&users.User{}, &twiters.Tweet{})
 }
