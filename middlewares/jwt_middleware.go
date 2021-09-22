@@ -1,6 +1,7 @@
 package middlewares
 
 import (
+	"errors"
 	"fmt"
 	"kampus_merdeka/constants"
 	"time"
@@ -35,9 +36,15 @@ func GenerateTokenJWT(id int) (string, error) {
 	return jwtToken, nil
 }
 
-func GetClaimsUserId(c echo.Context) int {
-	user := c.Get("user").(*jwt.Token)
-	claims := user.Claims.(jwt.MapClaims)
-	userId := claims["userId"].(float64)
-	return int(userId)
+func GetClaimsUserId(c echo.Context) (int, error) {
+	user := c.Get("user")
+	if user != nil {
+		userJwt := user.(*jwt.Token)
+		if userJwt.Valid {
+			claims := userJwt.Claims.(jwt.MapClaims)
+			userId := claims["userId"].(float64)
+			return int(userId), nil
+		}
+	}
+	return 0, errors.New("Failed Create JWT")
 }

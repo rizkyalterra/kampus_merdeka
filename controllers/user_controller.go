@@ -136,7 +136,7 @@ func GetUserController(c echo.Context) error {
 		}
 	}
 
-	userId := middlewares.GetClaimsUserId(c)
+	userId, _ := middlewares.GetClaimsUserId(c)
 	/// olah
 
 	return c.JSON(http.StatusOK, response.BaseResponse{
