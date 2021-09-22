@@ -1,0 +1,20 @@
+{
+    "debug": true,
+    "server": {
+      "address": ":8080"
+    },
+    "context":{
+      "timeout":2
+    },
+    "database": {
+        "host": "localhost",
+        "port": "3306",
+        "user": "root",
+        "pass": "123ABC4d.",
+        "name": "kampus_merdeka"
+    },
+    "jwt" : {
+      "secret" : "kampusmerdeka#212",
+      "expired" : 72
+    }
+  }
