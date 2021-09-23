@@ -17,7 +17,7 @@ type Domain struct {
 }
 
 type Usecase interface {
-	Login(ctx context.Context, email string, password string) (Domain, error)
+	Login(ctx context.Context, domain Domain) (Domain, error)
 }
 
 type Repository interface {

@@ -8,6 +8,7 @@ import (
 	_mysqlDriver "kampus_merdeka/drivers/mysql"
 	"time"
 
+	_middleware "kampus_merdeka/app/middlewares"
 	_userRepository "kampus_merdeka/drivers/databases/users"
 
 	"log"
@@ -42,6 +43,11 @@ func main() {
 		DB_Database: viper.GetString(`database.name`),
 	}
 
+	configJWT := _middleware.ConfigJWT{
+		SecretJWT:       viper.GetString(`jwt.secret`),
+		ExpiresDuration: viper.GetInt(`jwt.expired`),
+	}
+
 	Conn := configDB.InitialDB()
 	DbMigrate(Conn)
 
@@ -53,6 +59,7 @@ func main() {
 	userController := _userController.NewUserController(userUseCase)
 
 	routesInit := routes.ControllerList{
+		JwtConfig:      configJWT.Init(),
 		UserController: *userController,
 	}
 
