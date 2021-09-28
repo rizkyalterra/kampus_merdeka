@@ -30,6 +30,14 @@ func (user *Users) ToDomain() users.Domain {
 	}
 }
 
+func ToListDomain(data []Users) (result []users.Domain) {
+	result = []users.Domain{}
+	for _, user := range data {
+		result = append(result, user.ToDomain())
+	}
+	return
+}
+
 func FromDomain(domain users.Domain) Users {
 	return Users{
 		Id:        domain.Id,
