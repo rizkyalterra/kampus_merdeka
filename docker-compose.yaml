@@ -9,9 +9,9 @@ services:
     volumes:
       - api:/usr/src/app/
     depends_on:
-      - fullstack-mysql  
-    links:
-      - fullstack-mysql
+      - fullstack-mysql          
+    networks:
+      - fullstack
 
   fullstack-mysql:
     image: mysql:8.0
@@ -25,6 +25,8 @@ services:
       MYSQL_PASSWORD: root
     volumes:
       - database_mysql:/var/lib/mysql
+    networks:
+      - fullstack
 
 volumes:
   api:
@@ -32,6 +34,5 @@ volumes:
 
 # Networks to be created to facilitate communication between containers
 networks:
-  default:
-    external: 
-      name: fullstack
+  fullstack:
+    driver: bridge

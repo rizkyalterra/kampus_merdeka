@@ -8,7 +8,7 @@
     },
     "database": {
         "host": "fullstack-mysql",
-        "port": "3306",
+        "port": "3307",
         "user": "root",
         "pass": "root",
         "name": "kampus_merdeka"
