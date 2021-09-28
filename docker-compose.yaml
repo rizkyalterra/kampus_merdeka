@@ -1,0 +1,37 @@
+version: '3'
+services:
+  app:
+    container_name: full_app
+    build: .
+    ports: 
+      - 8080:8080 
+    restart: on-failure
+    volumes:
+      - api:/usr/src/app/
+    depends_on:
+      - fullstack-mysql  
+    links:
+      - fullstack-mysql
+
+  fullstack-mysql:
+    image: mysql:8.0
+    container_name: db_kampus_merdeka
+    ports: 
+      - 3307:3306
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kampus_merdeka
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - database_mysql:/var/lib/mysql
+
+volumes:
+  api:
+  database_mysql:                  
+
+# Networks to be created to facilitate communication between containers
+networks:
+  default:
+    external: 
+      name: fullstack

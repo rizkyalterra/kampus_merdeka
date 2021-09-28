@@ -32,11 +32,12 @@ func TestLogin(t *testing.T) {
 	// t.Error("4 + 5 Harusnya 9")
 	// assert.Equal(t, 2, 1)
 	setup()
+	userRepository.On("Login",
+		mock.Anything,
+		mock.AnythingOfType("string"),
+		mock.AnythingOfType("string")).Return(userDomain, nil).Once()
+
 	t.Run("Test Case 1 | Valid Login", func(t *testing.T) {
-		userRepository.On("Login",
-			mock.Anything,
-			mock.AnythingOfType("string"),
-			mock.AnythingOfType("string")).Return(userDomain, nil).Once()
 
 		user, err := userService.Login(context.Background(), users.Domain{
 			Email:    "alterra@gmail.com",
@@ -47,10 +48,6 @@ func TestLogin(t *testing.T) {
 	})
 
 	t.Run("Test Case 2 | Invalid Email Empty", func(t *testing.T) {
-		userRepository.On("Login",
-			mock.Anything,
-			mock.AnythingOfType("string"),
-			mock.AnythingOfType("string")).Return(userDomain, nil).Once()
 
 		_, err := userService.Login(context.Background(), users.Domain{
 			Email:    "",
@@ -60,10 +57,6 @@ func TestLogin(t *testing.T) {
 	})
 
 	t.Run("Test Case 3 | Invalid Password Empty", func(t *testing.T) {
-		userRepository.On("Login",
-			mock.Anything,
-			mock.AnythingOfType("string"),
-			mock.AnythingOfType("string")).Return(userDomain, nil).Once()
 
 		_, err := userService.Login(context.Background(), users.Domain{
 			Email:    "alterra@gmail.com",
