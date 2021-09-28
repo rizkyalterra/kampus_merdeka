@@ -1,0 +1,20 @@
+{
+    "debug": true,
+    "server": {
+      "address": ":8080"
+    },
+    "context":{
+      "timeout":2
+    },
+    "database": {
+        "host": "fullstack-mysql",
+        "port": "3307",
+        "user": "root",
+        "pass": "root",
+        "name": "kampus_merdeka"
+    },
+    "jwt" : {
+      "secret" : "kampusmerdeka#212",
+      "expired" : 72
+    }
+  }
