@@ -7,10 +7,10 @@
       "timeout":2
     },
     "database": {
-        "host": "fullstack-mysql",
-        "port": "3307",
+        "host": "altadb.chnrwur23unl.us-east-2.rds.amazonaws.com",
+        "port": "3306",
         "user": "root",
-        "pass": "root",
+        "pass": "1234root",
         "name": "kampus_merdeka"
     },
     "jwt" : {

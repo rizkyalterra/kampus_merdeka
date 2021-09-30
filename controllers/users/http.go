@@ -22,10 +22,10 @@ func NewUserController(userUseCase users.Usecase) *UserController {
 }
 
 func (userController UserController) Login(c echo.Context) error {
-	fmt.Println("Login")
+
 	userLogin := requests.UserLogin{}
 	c.Bind(&userLogin)
-
+	fmt.Println(userLogin)
 	ctx := c.Request().Context()
 	user, error := userController.UserUseCase.Login(ctx, userLogin.ToDomain())
 
