@@ -17,20 +17,20 @@ jobs:
     - name: running unitest
       run: go test ./... -cover -failfast
       
-    # - name: docker login
-    #   env:
-    #     DOCKER_USER: ${{ secrets.DOCKER_HUB_USERNAME }} 
-    #     DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}  
-    #   run: |
-    #     docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: docker login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_HUB_USERNAME }} 
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}  
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     
-    # - name: docker build golang
-    #   run: |
-    #     docker build . -t satriowicaksono/alta-store-project:1.0.0
+    - name: docker build golang
+      run: |
+        docker build . -t moryku/kampus_merdeka:1.0.0
 
-    # - name: docker push
-    #   run: |
-    #     docker push satriowicaksono/alta-store-project:1.0.0
+    - name: docker push
+      run: |
+        docker push moryku/kampus_merdeka:1.0.0
 
     # - name: Build, Push and Release a Docker container to Heroku.
     #   uses: gonuit/heroku-docker-deploy@v1.3.3
