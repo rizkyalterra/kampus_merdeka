@@ -1,0 +1,1 @@
+mysql -h altadb.chnrwur23unl.us-east-2.rds.amazonaws.com -u root -p
