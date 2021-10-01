@@ -22,12 +22,11 @@ jobs:
     - name: running unitest
       run: go test ./... -cover -failfast
       
-    - name: docker login
-      env:
-        DOCKER_USER: ${{ secrets.DOCKER_HUB_USERNAME }} 
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}  
-      run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: login docker to docker hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }} 
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}  
     
     - name: docker build golang
       run: |
