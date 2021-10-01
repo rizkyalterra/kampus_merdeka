@@ -10,10 +10,15 @@ on:
 
 jobs:
   api-test:
-    container: golang:1.16
     runs-on: ubuntu-latest
+    container: golang:1.16
     steps:
-    - uses: actions/checkout@v2
+      
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.16
+
     - name: running unitest
       run: go test ./... -cover -failfast
       
