@@ -11,7 +11,7 @@ on:
 jobs:
   api-test:
     runs-on: ubuntu-latest
-    container: golang:1.16
+    # container: golang:1.16
     steps:
     - uses: actions/checkout@v2  
     - name: Set up Go
