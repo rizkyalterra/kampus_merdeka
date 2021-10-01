@@ -1,11 +1,11 @@
-name: "unit test golang"
+name: unit test golang
 on:
   push:
     branches:
-      - "main"
+      - 'main'
   pull_request:
     branches:
-      - "main"
+      - 'main'
 
 jobs:
   #job 1 : unit test
