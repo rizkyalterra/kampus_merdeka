@@ -36,7 +36,7 @@ jobs:
     
     - name: docker build golang
       run: |
-        docker build . -t moryku/kampus_merdeka:1.0.0
+        docker build -t moryku/kampus_merdeka:1.0.0 .
 
     - name: docker push
       run: |
