@@ -36,12 +36,13 @@ jobs:
     - name: docker push
       run: |
         docker push moryku/kampus_merdeka:1.0.0
-        
+
   build-deploy:    
     name: "build, push to docker hub, & deploy to ec2"
     runs-on: ubuntu-latest
     needs: unit-test
     steps:
+    - uses: actions/checkout@v2 
     - name: Configure SSH
       env:
           SSH_USER: ${{ secrets.SSH_USERNAME }}
@@ -59,7 +60,7 @@ jobs:
           StrictHostKeyChecking=no
         END
     - name: deployment Client API & Internal API
-      run: ssh staging 'git pull && docker-compose down && docker-compose up --build -d --remove-orphans'
+      run: ssh staging 'git pull && docker-compose down && docker-compose up --build'
 
 
     # - name: Build, Push and Release a Docker container to Heroku.
