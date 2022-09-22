@@ -7,14 +7,14 @@
       "timeout":2
     },
     "database": {
-        "host": "altadb.chnrwur23unl.us-east-2.rds.amazonaws.com",
+        "host": "docker.for.mac.localhost",
         "port": "3306",
         "user": "root",
-        "pass": "1234root",
-        "name": "kampus_merdeka"
+        "pass": "123ABC4d.",
+        "name": "talentdashboard"
     },
     "jwt" : {
-      "secret" : "kampusmerdeka#212",
+      "secret" : "talentdashboard",
       "expired" : 72
     }
   }
